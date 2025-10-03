@@ -1,0 +1,33 @@
+{
+  "name": "agrimakert-api",
+  "version": "1.0.0",
+  "description": "This is an ecommerce where farmers can sell there products and customers can buy and bridging the gap ,making the farm products easily accessible hashtag api",
+  "homepage": "https://github.com/DILHT/agri-market-api#readme",
+  "bugs": {
+    "url": "https://github.com/DILHT/agri-market-api/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DILHT/agri-market-api.git"
+  },
+  "license": "ISC",
+  "author": "DILHT",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev":"nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
+  }
+}
