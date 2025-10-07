@@ -24,6 +24,10 @@ const Product = sequelize.define(
             type: DataTypes.INTEGER,
             defaultValue: 0
         }
+        // imageUrl:{
+        //     type: DataTypes.STRING,
+        //     allowNull:true
+        // }
 }, {
     tableName: 'products'
 });

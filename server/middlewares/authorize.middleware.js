@@ -1,13 +1,15 @@
-export const authorize = (...allowedRoles) => {
+export const authorizeRoles = (...roles) => {
+    const allowedRolesSet = new Set(roles);
+
     return (req, res, next) => {
         if (!req.user) {
-            return res.status(401).json({ message: "Unauthorized" });
+            return res.status(401).json({ message: 'Unauthorized' });
         }
 
-        if (!allowedRoles.includes(req.user.role)) {
-            return res.status(403).json({ message: "Forbidden" });
+        if (!allowedRolesSet.has(req.user.role)) {
+            return res.status(403).json({ message: 'Forbidden' });
         }
 
         next();
-    }
-}
+    };
+};

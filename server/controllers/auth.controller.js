@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/user.model.js';
 import config from '../../config/config.js'
-import { where } from 'sequelize';
+// import { where } from 'sequelize';
 
 
 export const register = async(req,res) =>{

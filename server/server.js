@@ -1,6 +1,7 @@
 import app from './express.js'
 import config from '../config/config.js'
 import sequelize from '../config/database.js'
+import "./models/association.js"
 
 const startServer = async() =>{
     try{
