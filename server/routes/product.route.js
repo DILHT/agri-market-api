@@ -15,10 +15,11 @@ const router = express.Router();
 
 // Public routes
 router.get('/', getAllProducts);
-router.get('/:id', getProduct);
+
 
 // Protected/admin routes
 router.post('/', authenticate, authorizeRoles('farmer'), createProduct);
+router.get('/:id', getProduct);
 router.put('/:id', authenticate, authorizeRoles('farmer'), updateProduct);
 router.delete('/:id',authenticate,authorizeRoles('farmer'), deleteProduct);
 

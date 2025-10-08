@@ -31,10 +31,16 @@ export const register = async(req,res) =>{
         password:hashedpassword,
         role: role || "customer",
     });
+    //toekn gen
+    const token = jwt.sign(
+            {id:newUser.id,role:newUser.role},
+            config.jwtSecret,
+            {expiresIn:"1h"}
+        );
 
-    res.status(201).json({message:"User registered Successfully ", userId:newUser.id})
+    res.status(201).json({message:"User registered Successfully ",token, userId:newUser.id})
 }catch(error){
-    res.status(500).json({message:"registeriing went wrong"})
+    res.status(500).json({error:"registeriing went wrong"})
 }
 
 }
@@ -52,13 +58,13 @@ export const login = async(req,res) =>{
         //find user 
         const user = await User.findOne({where:{email}})
         if(!user){
-            return res.status(401).json({message:"Invalid credentials"})
+            return res.status(401).json({error:"Invalid credentials"})
         }
 
         //check pwd
         const isMatch = await bcrypt.compare(password, user.password)
         if(!isMatch){
-            return res.status(401).json({message:"Invalid credentials"})
+            return res.status(401).json({error:"Invalid credentials"})
         }
 
         //generate a tokem
@@ -79,7 +85,7 @@ export const login = async(req,res) =>{
         })
 
     }catch(error){
-        res.status(500).json({message:"internal server error",error})
+        res.status(500).json({error:"internal server error",error})
     }
 
 }
